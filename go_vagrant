@@ -1,0 +1,25 @@
+#!/bin/bash
+#set -ex
+trap 'failed' ERR
+
+WIN_BOX_NAME=IE11_Win7_from_file
+
+add_windows_box_to_vagrant() {
+    # brew update
+    # brew install vagrant
+
+    if [[ -z `vagrant box list | grep $WIN_BOX_NAME` ]] ;
+    then
+        echo vagrant box add --name $WIN_BOX_NAME ~/other/vagrant_vms/IE11\ -\ Win7.box
+    else
+        echo vagrant window box present
+    fi
+}
+
+failed() {
+    while caller $((n++)); do :; done;
+}
+
+add_windows_box_to_vagrant
+init_vagrant
+# IEUser / Passw0rd!
