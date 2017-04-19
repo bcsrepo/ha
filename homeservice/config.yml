@@ -3,7 +3,7 @@ server:
   type: simple
   connector:
     type: http
-    port: 8080
+    port: 8090
 
 # server:
 # #  softNofileLimit: 1000
@@ -53,31 +53,31 @@ logging:
     - type: file
       threshold: INFO
       logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
-      currentLogFilename: /tmp/application.log
-      archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}-%i.log.gz
+      currentLogFilename: /tmp/homeservice.log
+      archivedLogFilenamePattern: /tmp/homeservice-%d{yyyy-MM-dd}-%i.log.gz
       archivedFileCount: 7
       timeZone: UTC
       maxFileSize: 10MB
 
-# Database settings.
-database:
+# # Database settings.
+# database:
 
-  # the name of your JDBC driver
-  driverClass: org.h2.Driver
+#   # the name of your JDBC driver
+#   driverClass: org.h2.Driver
 
-  # the username
-  user: sa
+#   # the username
+#   user: sa
 
-  # the password
-  password: sa
+#   # the password
+#   password: sa
 
-  # the JDBC URL
-  url: jdbc:h2:./target/example
+#   # the JDBC URL
+#   url: jdbc:h2:./target/example
 
-metrics:
-  reporters:
-    - type: graphite
-      host: localhost
-      port: 2003
-      prefix: example
-      frequency: 1m
+# metrics:
+#   reporters:
+#     - type: graphite
+#       host: localhost
+#       port: 2003
+#       prefix: example
+#       frequency: 1m
