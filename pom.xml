@@ -92,6 +92,7 @@
                             <mainClass>${mainClass}</mainClass>
                         </manifest>
                     </archive>
+                    <forceCreation>true</forceCreation>
                 </configuration>
             </plugin>
             <plugin>

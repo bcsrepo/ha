@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := build
+
 init: requirements develop
 
 install:
@@ -15,6 +17,9 @@ setup: clean
 
 requirements:
 	# ansible ....
+
+build:
+	mvn verify
 
 test:
 	mvn test
@@ -35,7 +40,9 @@ test_running:
 	curl_return_code=$$?; \
 	echo; echo "------------CURL RETURNED ($$curl_return_code)---------"; echo; \
 	kill $$pid; \
-	exit $$curl_return_code
+	sleep 1; \
+	echo; echo "------------SERVER KILLED---------------"; echo; \
+	exit $$curl_return_code;
 
 clean:
 	#rm -rf blah/ other_blah/ *.some_ext/ **/*.xxx
